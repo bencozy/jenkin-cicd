@@ -7,6 +7,7 @@ pipeline {
         stage("build"){
             steps{
                 echo 'Hello Jenkins hi'
+                sh "docker ps -a"
                 sh "docker build -t bendevet/product:v5 -f Dockerfile ./"
             }
         }
