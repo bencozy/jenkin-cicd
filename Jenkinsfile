@@ -7,7 +7,7 @@ pipeline {
         stage("build"){
             steps{
                 echo 'Hello Jenkins hi'
-                sh "docker build -t bendevetJenkins:v1 -f Dockerfile ./"
+                sh "docker build -t bendevet/product:v5 -f Dockerfile ./"
             }
         }
     }  
