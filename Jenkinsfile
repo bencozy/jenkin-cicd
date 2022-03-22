@@ -2,23 +2,21 @@
 pipeline {
     agent {
         docker {image 'docker'}
+        docker {image 'alpine/helm'}
     }
     stages{
         stage("build"){
             steps{
-                echo 'Hello Jenkins hi'
-                // sh "docker build -t bendevet/product:v5 -f Dockerfile ./"
-
                 script{
- docker.withRegistry('https://registry.hub.docker.com', 'docker-credential') {
-
-                   def customImage = docker.build("bendevet/product:v5")
-                   /* Push the container to the custom Registry */
-                   customImage.push()
-                  }
+                    alpine/helm --version
                 }
-
-               
+                // script{
+                //    docker.withRegistry('https://registry.hub.docker.com', 'docker-credential') {
+                //    def customImage = docker.build("bendevet/product:v5")
+                //    /* Push the container to the custom Registry */
+                //    customImage.push()
+                //   }
+                // }
             }
         }
     }  
