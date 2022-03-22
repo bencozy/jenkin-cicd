@@ -9,7 +9,7 @@ pipeline {
                 echo 'Hello Jenkins hi'
                 // sh "docker build -t bendevet/product:v5 -f Dockerfile ./"
 
-                docker.withRegistry('https://registry.example.com', 'credentials-id') {
+                docker.withRegistry('https://hub.docker.com/', 'docker-credential') {
 
                    def customImage = docker.build("bendevet/product:v5")
                    /* Push the container to the custom Registry */
