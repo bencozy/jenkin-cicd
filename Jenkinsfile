@@ -1,14 +1,14 @@
 
 pipeline {
-    agent {
-        docker {image 'docker'}
-    }
+    // agent {
+    //     docker {image 'docker'}
+    // }
+     agent{
+                  docker {image 'alpine/helm'}
+                 }
     stages{
         stage("helm"){
             steps{
-                 agent{
-                  docker {image 'alpine/helm'}
-                 }
                 script{
                     alpine/helm
                 }
