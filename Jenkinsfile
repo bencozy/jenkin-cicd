@@ -2,7 +2,9 @@
 pipeline {
     agent {
         docker {image 'docker'}
-        docker {image 'alpine/helm'}
+    }
+    agent{
+         docker {image 'alpine/helm'}
     }
     stages{
         stage("build"){
