@@ -10,7 +10,7 @@ pipeline {
                 // sh "docker build -t bendevet/product:v5 -f Dockerfile ./"
 
                 script{
- docker.withRegistry('https://login.docker.com/u/login', 'docker-credential') {
+ docker.withRegistry('https://registry.hub.docker.com', 'docker-credential') {
 
                    def customImage = docker.build("bendevet/product:v5")
                    /* Push the container to the custom Registry */
