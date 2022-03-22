@@ -8,7 +8,7 @@ pipeline {
         stage("build"){
             steps{
                 script{
-                    alpine/helm --version
+                    alpine/helm
                 }
                 // script{
                 //    docker.withRegistry('https://registry.hub.docker.com', 'docker-credential') {
