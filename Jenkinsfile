@@ -5,6 +5,7 @@ pipeline {
     // }
      agent{
                   docker {image 'alpine/helm'}
+                  
                  }
     stages{
         stage("helm"){
