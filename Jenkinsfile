@@ -58,13 +58,27 @@
                          } // script
                      } // steps
                  } // stage
-                 stage("Docker Build") {
-                     steps {
-                        // This uploads your application's source code and performs a binary build in OpenShift
-                        // This is a step defined in the shared library (see the top for the URL)
-                        // (Or you could invoke this step using 'oc' commands!)
-                        binaryBuild(buildConfigName: appName, buildFromPath: ".")
-                    }
-        }
+        //          stage("Docker Build") {
+        //              steps {
+        //                 // This uploads your application's source code and performs a binary build in OpenShift
+        //                 // This is a step defined in the shared library (see the top for the URL)
+        //                 // (Or you could invoke this step using 'oc' commands!)
+        //                 binaryBuild(buildConfigName: appName, buildFromPath: ".")
+        //             }
+
+        // }
+        stage('Docker Build in dev') {
+   steps {
+       script {
+           openshift.withCluster() {
+               openshift.withProject("default") {
+                   // bc = build configuration ...
+                   def build = openshift.selector('bc', 'product-app').startBuild("--from-dir .")
+                   build.logs('-f')
+               }
+           }
+       }
+   }
+}
             } // stages
         } // pipeline
