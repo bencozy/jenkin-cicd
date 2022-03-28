@@ -1,12 +1,12 @@
         
         
         library identifier: "pipeline-library@v1.5",
-//         retriever: modernSCM(
-//             [
-//                 $class: "GitSCMSource",
-//                 remote: "https://github.com/redhat-cop/pipeline-library.git"
-//             ]
-// )
+        retriever: modernSCM(
+            [
+                $class: "GitSCMSource",
+                remote: "https://github.com/redhat-cop/pipeline-library.git"
+            ]
+)
 
         // The name you want to give your Spring Boot application
         // Each resource related to your app will be given this name
