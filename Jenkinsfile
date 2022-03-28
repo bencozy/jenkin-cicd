@@ -1,12 +1,4 @@
-kind: "BuildConfig"
-apiVersion: "v1"
-metadata:
-  name: "nodejs-sample-pipeline"
-spec:
-  strategy:
-    jenkinsPipelineStrategy:
-      jenkinsfile: |-
-        // path of the template to use
+  // path of the template to use
         def templatePath = 'nodejs-postgresql-example'
         // name of the template that will be created
         def templateName = 'nodejs-postgresql-example'
@@ -108,4 +100,3 @@ spec:
                 # } // stage
             } // stages
         } // pipeline
-      type: JenkinsPipeline
