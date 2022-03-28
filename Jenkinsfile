@@ -71,7 +71,7 @@
    steps {
        script {
            openshift.withCluster() {
-               openshift.withProject("default") {
+               openshift.withProject() {
                    // bc = build configuration ...
                    def build = openshift.selector('bc', 'product-app').startBuild("--from-dir .")
                    build.logs('-f')
